@@ -1,2 +1,3 @@
-# algorithmic-thinking-Zingaro
-Rust solutions to Daniel Zingaro's Algorithmic Thinking problems
+# Algorithmic Thinking by Daniel Zingaro
+
+Rust implementations for Daniel Zingaro's Algorithmic Thinking book problem set.
