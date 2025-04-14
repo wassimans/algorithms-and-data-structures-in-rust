@@ -1,6 +1,6 @@
 # Algorithms and Data Structures in Rust (WIP)
 
-<div align="center" style="width: 300px;">
+<div align="center" style="max-width: 60%;">
   <img src="assets/image.png" alt="Algorithms and Data Structures in Rust">
 </div>
 
