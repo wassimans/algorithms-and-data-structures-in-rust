@@ -1,0 +1,8 @@
+[package]
+name = "stack"
+description = "Naive implementation of a Stack data structure in Rust"
+author = "Wassim Mansouri"
+version = "0.1.0"
+edition = "2024"
+
+[dependencies]

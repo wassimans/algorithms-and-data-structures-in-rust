@@ -1,3 +1,8 @@
 [workspace]
-members = ["hashtables"]
+name = "algorithms-data-structures-rust"
+description = "Naive implementations of some data structures and algorithms in Rust"
+author = "Wassim Mansouri"
+version = "0.1.0"
+edition = "2024"
+members = ["stack"]
 resolver = "2"
