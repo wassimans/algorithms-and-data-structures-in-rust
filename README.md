@@ -1,5 +1,9 @@
 # Algorithms and Data Structures in Rust (WIP)
 
+<div align="center">
+  <img src="assets/image.png" alt="Algorithms and Data Structures in Rust">
+</div>
+
 ## About
 This is a personal attempt at implementing some known algorithms and data structures using the Rust programming language. This is mostly for learning purposes.
 
