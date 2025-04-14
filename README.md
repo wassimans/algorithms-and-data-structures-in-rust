@@ -1,16 +1,8 @@
 # Algorithms and Data Structures in Rust (WIP)
 
-<div class="container">
+<div align="center" style="width: 300px;">
   <img src="assets/image.png" alt="Algorithms and Data Structures in Rust">
 </div>
-
-<style>
-  .container {
-    width: 100%;
-    max-width: 300px;
-    margin: 0 auto;
-  }
-</style>
 
 ## About
 This is a personal attempt at implementing some known algorithms and data structures using the Rust programming language. This is mostly for learning purposes.
