@@ -13,6 +13,11 @@ The structure of the Cargo project is very simple: a main Cargo workspace inside
 
 Since it's known that implementing data structures and algorithms in a verbose language like *Rust* is a harder than using more expressive languages like *Python*, I think it's still a doable thing if we use *generics*, this will keep the compiler happy while giving us some freedom to skip some verbosity in our final code.
 
+## Patterns
+In **Rust**, generally, when we want to implement a custom data structure, we start with a **struct**, and then define custom functions or methods for that struct.
+
+In my implementations, I will try to use basic scalar, composite and collection data types provided by Rust in order to achieve maximum efficiency and compatibility. For example: we will use a *Vec* to implement our *Stack*. 
+
 ## Stack
 - A *stack* is a *linear* data structure that contains an ordered collection of items.
 - New items are added or removed from the top in LIFO manner.
@@ -22,15 +27,17 @@ Since it's known that implementing data structures and algorithms in a verbose l
 ```mermaid
 classDiagram
     class Stack~T~ {
-        -items: Vec~T~
-        +new() Stack~T~
-        +push(item: T) void
-        +pop() T
-        +peek() T
-        +is_empty() bool
-        +size() usize
-        +iter() Iterator~&T~
-        +iter_mut() Iterator~&mut T~
-        +into_iter() Iterator~T~
+        - Vec~T~ data
+        + new() Stack~T~
+        + push(item: T) void
+        + pop() T
+        + peek() T
+        + is_empty() bool
+        + size() usize
+        + iter() Iterator~&T~
+        + iter_mut() Iterator~&mut T~
+        + into_iter() IntoIterator~T~
     }
+
+    Stack~T~ --> Vec~T~ : uses tail as top
 ```
