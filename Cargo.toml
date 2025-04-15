@@ -1,8 +1,13 @@
 [workspace]
-name = "algorithms-data-structures-rust"
-description = "Naive implementations of some data structures and algorithms in Rust"
-author = "Wassim Mansouri"
-version = "0.1.0"
-edition = "2024"
 members = ["stack"]
 resolver = "2"
+
+[workspace.package]
+edition = "2024"
+license = "Unlicense"
+authors = ["Wassim Mansouri <you@example.com>"]
+version = "0.1.0"
+repository = "https://github.com/wassimans/algorithmis-data-structures-rust"
+readme = "README.md"
+categories = ["data-structures", "education"]
+keywords = ["stack", "data-structure", "rust"]

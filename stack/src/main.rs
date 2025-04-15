@@ -1,3 +1,7 @@
+use stack::Stack;
+
 fn main() {
-    println!("Hello, world!");
+    let mut s = Stack::new();
+    s.push(1);
+    println!("{:?}", s);
 }

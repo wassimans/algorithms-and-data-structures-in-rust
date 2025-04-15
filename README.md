@@ -4,6 +4,8 @@
   <img src="assets/image.png" alt="Algorithms and Data Structures in Rust" width="600">
 </div>
 
+[![License: Unlicense](https://img.shields.io/badge/license-Unlicense-blue.svg)](http://unlicense.org/)
+
 ## About
 This is a personal attempt at implementing some known algorithms and data structures using the Rust programming language. This is mostly for learning purposes.
 
