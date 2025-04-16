@@ -40,9 +40,23 @@
 //! All iterators traverse the stack in **LIFO order** (last inserted item first):
 //!
 //! ```rust
-//! for item in &stack       // immutable
-//! for item in &mut stack   // mutable
-//! for item in stack        // by-value
+//! use stack::Stack;
+//!
+//! let mut stack = Stack::new();
+//! stack.push(1);
+//! stack.push(2);
+//!
+//! for item in &stack {  // immutable
+//!     println!("{item}");
+//! }
+//!
+//! for item in &mut stack {  // mutable
+//!     *item *= 2;
+//! }
+//!
+//! for item in stack {  // by-value, consuming the stack
+//!     println!("{item}");
+//! }
 //! ```
 
 #[derive(Debug)]
@@ -133,10 +147,24 @@ mod tests {
     use super::*;
 
     #[test]
-    fn test_push_and_pop() {
+    fn test_basic_operations() {
         let mut s = Stack::new();
-        s.push(10);
-        assert_eq!(s.pop(), Some(10));
+        s.push(1);
+        s.push(2);
+        s.push(3);
+        s.push(4);
+        s.push(5);
+        s.push(6);
+        s.push(7);
+        assert_eq!(s.pop(), Some(7));
+
+        let peek_mut = s.peek_mut();
+        assert_eq!(*peek_mut.unwrap(), 6);
+
+        let sum = s.iter().sum::<i32>();
+        assert_eq!(sum, 21);
+
+        s.clear();
         assert!(s.is_empty());
     }
 }
