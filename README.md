@@ -35,10 +35,12 @@ classDiagram
         + pop() T
         + peek() T
         + is_empty() bool
-        + size() usize
+        + len() usize
         + iter() Iterator~&T~
         + iter_mut() Iterator~&mut T~
         + into_iter() IntoIterator~T~
+        + into_iter() IntoIterator~&T~
+        + into_iter() IntoIterator~&mut T~
     }
 
     Stack~T~ --> Vec~T~ : uses tail as top
