@@ -1,3 +1,50 @@
+//! # Stack
+//!
+//! A simple and efficient Last-In-First-Out (LIFO) stack implementation built on top of `Vec<T>`.
+//!
+//! This `Stack<T>` provides a classic stack API with additional iterator support. Internally, it
+//! stores elements using a `Vec<T>`, treating the **end of the vector as the top of the stack**.
+//!
+//! All operations are O(1) amortized time, leveraging Rust's standard `Vec<T>`.
+//!
+//! ## Features
+//! - `new()` / `default()` — Create a new empty stack
+//! - `push()` — Add an item to the top
+//! - `pop()` — Remove and return the top item
+//! - `peek()` / `peek_mut()` — Look at the top item (immutable or mutable)
+//! - `clear()` — Remove all items
+//! - `len()` / `is_empty()` — Inspect size
+//! - `iter()` / `iter_mut()` — Iterate in LIFO order
+//! - Supports `for` loops by implementing `IntoIterator`
+//!
+//! ## Example
+//!
+//! ```rust
+//! use stack::Stack;
+//!
+//! let mut s = Stack::new();
+//! s.push(1);
+//! s.push(2);
+//! assert_eq!(s.peek(), Some(&2));
+//!
+//! for value in &s {
+//!     println!("Stack value: {value}");
+//! }
+//!
+//! while let Some(top) = s.pop() {
+//!     println!("Popped: {top}");
+//! }
+//! ```
+//!
+//! ## LIFO Iteration
+//! All iterators traverse the stack in **LIFO order** (last inserted item first):
+//!
+//! ```rust
+//! for item in &stack       // immutable
+//! for item in &mut stack   // mutable
+//! for item in stack        // by-value
+//! ```
+
 #[derive(Debug)]
 pub struct Stack<T> {
     data: Vec<T>,
@@ -20,32 +67,26 @@ impl<T> Stack<T> {
         self.data.clear();
     }
 
-    // Put a new item in the tail of the inner Vec
     pub fn push(&mut self, item: T) {
         self.data.push(item);
     }
 
-    // Remove the last element of the inner Vec, return that element
     pub fn pop(&mut self) -> Option<T> {
         self.data.pop()
     }
 
-    // Return reference to the top value of the stack
     pub fn peek(&self) -> Option<&T> {
         self.data.last()
     }
 
-    // Return a mutable reference to the top value of the stack
     pub fn peek_mut(&mut self) -> Option<&mut T> {
         self.data.last_mut()
     }
 
-    // Iteration over references of the Stack LIFO way
     pub fn iter(&self) -> std::iter::Rev<std::slice::Iter<T>> {
         self.data.iter().rev()
     }
 
-    // Ietration over mutable references of the Stack LIFO way
     pub fn iter_mut(&mut self) -> std::iter::Rev<std::slice::IterMut<T>> {
         self.data.iter_mut().rev()
     }
@@ -57,13 +98,6 @@ impl<T> Default for Stack<T> {
     }
 }
 
-// Iteration implementations with LIFO style
-// Used in for loops
-//
-// Does consume the Stack elements: stack.into_iter()
-// Useful for example when we are done with the Stack
-// and want to move the elemenst out.
-// for item in stack ...
 impl<T> IntoIterator for Stack<T> {
     type Item = T;
 
@@ -74,7 +108,6 @@ impl<T> IntoIterator for Stack<T> {
     }
 }
 
-// for item in &stack ...
 impl<'a, T> IntoIterator for &'a Stack<T> {
     type Item = &'a T;
 
@@ -85,7 +118,6 @@ impl<'a, T> IntoIterator for &'a Stack<T> {
     }
 }
 
-// for item in &mut stack ...
 impl<'a, T> IntoIterator for &'a mut Stack<T> {
     type Item = &'a mut T;
 
