@@ -6,15 +6,15 @@ fn main() {
 
 /// 1. Initialize an empty stack.
 /// 2. Iterate through the string one character at a time.
-/// 3. When you see an opening bracket, push it onto the stack.
-/// 4. When you see a closing bracket:
-///     • If the stack is empty → ❌ Invalid (nothing to match).
+/// 3. If the current character is an opening parenthesis, push it onto the stack.
+/// 4. If the current character is a closing parenthesis:
+///     • If the stack is empty → Invalid (nothing to match).
 ///     • Otherwise, pop the top item off the stack.
-///     • Check if it matches the current closing bracket (e.g. ( with )).
-///     • If it doesn’t match → ❌ Invalid.
+///     • Check if it matches the current closing parenthesis (e.g. ( with )).
+///     • If it doesn’t match → Invalid.
 /// 5. After the loop:
-///     • If the stack is not empty, some brackets were left unclosed → ❌ Invalid.
-///     • If the stack is empty, all brackets were matched and closed correctly → ✅ Valid.
+///     • If the stack is not empty, some parenthesis were left unclosed → Invalid.
+///     • If the stack is empty, all parenthesis were matched and closed correctly → ✅ Valid.
 fn par_matcher(chars: &str) -> bool {
     let mut s = Stack::new();
 
@@ -42,7 +42,7 @@ mod tests {
     use super::*;
     #[test]
     fn balanced() {
-        assert!(par_matcher("()((()))"));
+        assert!(par_matcher("func(a+b)(((c*d)))"));
     }
 
     #[test]
