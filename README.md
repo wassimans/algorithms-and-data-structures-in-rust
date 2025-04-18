@@ -45,3 +45,6 @@ classDiagram
 
     Stack~T~ --> Vec~T~ : uses tail as top
 ```
+### Examples
+- Decimal to binary converter.
+- Parenthesis matcher.
