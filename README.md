@@ -61,7 +61,7 @@ classDiagram
         + into_iter() IntoIterator~&mut T~
     }
 ```
-### Examples implementations included
+### Example implementations included
 - Decimal to binary converter.
 - Parenthesis matcher.
 
@@ -107,5 +107,5 @@ classDiagram
     }
 ```
 
-### Examples implementations included
+### Example implementations included
 - Hot potato winner.
