@@ -64,6 +64,12 @@ pub struct Stack<T> {
     data: Vec<T>,
 }
 
+impl<T> Default for Stack<T> {
+    fn default() -> Self {
+        Self::new()
+    }
+}
+
 impl<T> Stack<T> {
     pub fn new() -> Self {
         Self { data: Vec::new() }
@@ -103,12 +109,6 @@ impl<T> Stack<T> {
 
     pub fn iter_mut(&mut self) -> std::iter::Rev<std::slice::IterMut<T>> {
         self.data.iter_mut().rev()
-    }
-}
-
-impl<T> Default for Stack<T> {
-    fn default() -> Self {
-        Self::new()
     }
 }
 

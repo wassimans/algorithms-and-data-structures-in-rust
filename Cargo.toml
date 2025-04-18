@@ -1,5 +1,5 @@
 [workspace]
-members = ["stack"]
+members = ["stack", "queue"]
 resolver = "2"
 
 [workspace.package]
