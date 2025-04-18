@@ -23,13 +23,31 @@ In my implementations, I will try to use basic scalar, composite and collection 
 ## Stack
 - A **Stack** is a *linear* data structure that contains an ordered collection of items.
 - New items are added or removed from the top in **LIFO** manner.
+- We will use Rust’s *Vec<T>* for a stack, giving us *O(1)* push and pop operations from the end.
+
+### Sequence diagram
+
+```mermaid
+sequenceDiagram
+    participant Stack
+    participant User
+
+    User->>Stack: push(A)
+    User->>Stack: push(B)
+    User->>Stack: push(C)
+    Stack-->>User: [C, B, A]
+
+    User->>Stack: pop()
+    Stack-->>User: C
+    Stack-->>User: [B, A]
+```
 
 ### Exposed API
 
 ```mermaid
 classDiagram
     class Stack~T~ {
-        - Vec~T~ data
+        - Uses Vec~T~ internally
         + new() Stack~T~
         + push(item: T) void
         + pop() T
@@ -50,12 +68,31 @@ classDiagram
 ## Queue
 - A **Queue** is another *linear* data structure that contains an ordered collection of items.
 - New items are added (enqueue) at the rear of the queue, and items are removed (dequeue) from the front in a **FIFO** manner.
+- For a queue, we will be using Rust's *VecDeque* which is more appropriate, providing *O(1)* enqueue and dequeue operations from both ends.
+
+### Sequence diagram
+
+```mermaid
+sequenceDiagram
+    participant Queue
+    participant User
+
+    User->>Queue: enqueue(A)
+    User->>Queue: enqueue(B)
+    User->>Queue: enqueue(C)
+    Queue-->>User: [A, B, C]
+
+    User->>Queue: dequeue()
+    Queue-->>User: A
+    Queue-->>User: [B, C]
+```
 
 ### Exposed API
 
 ```mermaid
 classDiagram
     class Queue~T~ {
+        - Uses VecDeque~T~ internally
         +new() Queue~T~
         +is_empty() bool
         +len() usize
