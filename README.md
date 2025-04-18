@@ -107,3 +107,5 @@ classDiagram
     }
 ```
 
+### Examples implementations included
+- Hot potato winner.
