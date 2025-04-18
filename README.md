@@ -13,7 +13,7 @@ The idea is to do some research on some data structure or algorithm, write some 
 
 The structure of the Cargo project is very simple: a main Cargo workspace inside which there's cargo sub-projects for each data structure or algorithm. This gives us the ability to add tests specific to every sub-project for more modularity.
 
-Since it's known that implementing data structures and algorithms in a verbose language like *Rust* is a harder than using more expressive languages like *Python*, I think it's still a doable thing if we use *generics*, this will keep the compiler happy while giving us some freedom to skip some verbosity in our final code.
+Since it's known that implementing data structures and algorithms in a verbose language like *Rust* is harder than using more expressive languages like *Python*, I think it's still a doable thing if we use *generics*, this will keep the compiler happy while giving us some freedom to skip some verbosity in our final code.
 
 ## Patterns
 In **Rust**, generally, when we want to implement a custom data structure, we start with a **struct**, and then define custom functions or methods for that struct.
@@ -23,7 +23,7 @@ In my implementations, I will try to use basic scalar, composite and collection 
 ## Stack
 - A **Stack** is a *linear* data structure that contains an ordered collection of items.
 - New items are added or removed from the top in **LIFO** manner.
-- We will use Rust’s *Vec<T>* for a stack, giving us *O(1)* push and pop operations from the end.
+- We will use Rust’s *Vec<T>* in our stack, giving us *O(1)* push and pop operations from the end.
 
 ### Sequence diagram
 
@@ -61,7 +61,7 @@ classDiagram
         + into_iter() IntoIterator~&mut T~
     }
 ```
-### Examples
+### Examples implementations included
 - Decimal to binary converter.
 - Parenthesis matcher.
 
