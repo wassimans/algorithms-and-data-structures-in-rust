@@ -148,7 +148,7 @@ mod tests {
 
     #[test]
     fn test_basic_operations() {
-        let mut s = Stack::new();
+        let mut s: Stack<u32> = Stack::new();
         s.push(1);
         s.push(2);
         s.push(3);
@@ -161,7 +161,7 @@ mod tests {
         let peek_mut = s.peek_mut();
         assert_eq!(*peek_mut.unwrap(), 6);
 
-        let sum = s.iter().sum::<i32>();
+        let sum = s.iter().sum::<u32>();
         assert_eq!(sum, 21);
 
         s.clear();
