@@ -21,8 +21,8 @@ In **Rust**, generally, when we want to implement a custom data structure, we st
 In my implementations, I will try to use basic scalar, composite and collection data types provided by Rust in order to achieve maximum efficiency and compatibility. For example: we will use a *Vec* to implement our *Stack*. 
 
 ## Stack
-- A *stack* is a *linear* data structure that contains an ordered collection of items.
-- New items are added or removed from the top in LIFO manner.
+- A **Stack** is a *linear* data structure that contains an ordered collection of items.
+- New items are added or removed from the top in **LIFO** manner.
 
 ### Exposed API
 
@@ -42,9 +42,31 @@ classDiagram
         + into_iter() IntoIterator~&T~
         + into_iter() IntoIterator~&mut T~
     }
-
-    Stack~T~ --> Vec~T~ : uses tail as top
 ```
 ### Examples
 - Decimal to binary converter.
 - Parenthesis matcher.
+
+## Queue
+- A **Queue** is another *linear* data structure that contains an ordered collection of items.
+- New items are added (enqueue) at the rear of the queue, and items are removed (dequeue) from the front in a **FIFO** manner.
+
+### Exposed API
+
+```mermaid
+classDiagram
+    class Queue~T~ {
+        +new() Queue~T~
+        +is_empty() bool
+        +len() usize
+        +clear()
+        +enqueue(item: T)
+        +dequeue() Option~T~
+        +peek() Option~&T~
+        +peek_mut() Option~&mut T~
+        +iter() impl Iterator~Item=&T~
+        +iter_mut() impl Iterator~Item=&mut T~
+        +into_iter() impl Iterator~Item=T~
+    }
+```
+
