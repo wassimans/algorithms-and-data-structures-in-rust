@@ -1,0 +1,13 @@
+[package]
+name = "hashmap"
+description= "Simple implementation of a Hashmap data structure in Rust"
+edition.workspace = true
+license.workspace = true
+authors.workspace = true
+version.workspace = true
+repository.workspace = true
+readme.workspace = true
+categories.workspace = true
+keywords.workspace = true
+
+[dependencies]

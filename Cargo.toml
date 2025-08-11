@@ -1,5 +1,5 @@
 [workspace]
-members = ["stack", "queue"]
+members = ["stack", "queue", "hashmap"]
 resolver = "2"
 
 [workspace.package]
